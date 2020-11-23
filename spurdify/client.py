@@ -74,16 +74,23 @@ def multiple_replace(sequence, text):
     return regex.sub(lambda mo: sequence[mo.string[mo.start():mo.end()]], text)
 
 
-def callback(matchobj):
+def faces(matchobj):
     length = random.randint(0, 4) + 1
     return " " + random.choice([':' + 'D' * length, 'x' + 'D' * length])
+
+
+def sillyO(matchobj):
+    if random.random() < 0.1:
+        return random.choice(sillyOs)
+    else:
+        return "o"
 
 
 def spurdify(text: str) -> str:
     result = text.lower()
 
     result = multiple_replace(replacement_sequence, result)
-    result = re.sub(r'o', lambda m: random.choice(sillyOs), result)
-    result = re.sub(r'[.,;]', callback, result)
+    result = re.sub(r'o', sillyO, result)
+    result = re.sub(r'[.,;]', faces, result)
 
     return result

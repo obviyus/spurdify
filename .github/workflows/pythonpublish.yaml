@@ -21,7 +21,7 @@ jobs:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
           body: |
-            Changes in this Release
+            Reduce frequency of silly O's in output.
           draft: false
           prerelease: false
   deploy:

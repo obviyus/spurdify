@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import setuptools
-import re
 import os.path
+import re
+
+import setuptools
 
 
 def get_file(*paths):
